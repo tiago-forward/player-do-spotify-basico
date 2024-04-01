@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Player do Spotify</title>
+</head>
+<body>
+    <main class="music-container">
+        <h4 id="playlist-title" class="playlist-title">Playlist Tiago Forward</h4>
+        <img id="cover" class="cover" alt="Disc Cover">
+        <audio id="audio"></audio>
+        <div id="below-cover" class="below-cover">
+            <div class="song-info">
+                <span id="song-name" class="song-name ">Smart</span>
+                <span id="band-name" class="band-name light-color">Lee Serafim</span>
+            </div>
+            <button id="like" class="button light-color"><i class="bi bi-heart"></i></button>
+        </div>
+        <div id="progress-bar" class="progress-bar">
+            <div id="current-progress" class="current-progress"></div>
+        </div>
+        <div id="button-container" class="button-container">
+            <button id="shuffle" class="button"><i class="bi bi-shuffle"></i></button>
+            <button id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></button>
+            <button id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></button>
+            <button id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></button>
+            <button id="repeat" class="button"><i class="bi bi-repeat"></i></button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
