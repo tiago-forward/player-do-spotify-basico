@@ -15,6 +15,8 @@
 
 Esse projeto está sendo criado através do curso básico de JavaScript da Hashtag Programação.
 
+Aprendi muita coisa importante, foram elas algumas propriedades do JavaScript, como setProperty, clientWidth, offsetX e todas as outras propriedades que manipulam a tag de audio do HTML, para o som, barra de progresso e o temporizador.
+
 ## Objetivo
 
 Ao iniciar essas aulas, meu objetivo é aprender mais sobre a tag de áudio, e como fazer um player de música, com contagem numérica, barra de progresso e o volume.
