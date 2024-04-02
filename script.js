@@ -8,8 +8,7 @@ const previous = document.getElementById('previous');
 const currentProgress = document.getElementById('current-progress')
 const numberProgressStart = document.getElementById('number-progress-start')
 let numberProgressEnd = document.getElementById('number-progress-end')
-
-let isPlaying = false;
+const progressContainer = document.getElementById('progress-container')
 
 const playList = [{
     songName: 'Smart',
@@ -33,6 +32,7 @@ const playList = [{
     duration: '-02:58'
 }]
 
+let isPlaying = false;
 let index = 0;
 
 function playSong() {
@@ -49,15 +49,15 @@ function pauseSong() {
     isPlaying = false;
 };
 
-function playPauseDecider(){
-    if(isPlaying === true){
+function playPauseDecider() {
+    if (isPlaying === true) {
         pauseSong();
     } else {
         playSong();
     }
 };
 
-function initializeSong(){
+function initializeSong() {
     cover.src = `imagens/${playList[index].file}.webp`
     song.src = `songs/${playList[index].file}.mp3`
     songName.innerText = playList[index].songName
@@ -66,8 +66,8 @@ function initializeSong(){
     numberProgressEnd.innerText = playList[index].duration
 };
 
-function previousSong(){
-    if(index === 0){
+function previousSong() {
+    if (index === 0) {
         index = playList.length - 1;
     } else {
         index -= 1;
@@ -76,8 +76,8 @@ function previousSong(){
     playSong();
 };
 
-function nextSong(){
-    if(index === playList.length - 1){
+function nextSong() {
+    if (index === playList.length - 1) {
         index = 0;
     } else {
         index += 1;
@@ -86,22 +86,29 @@ function nextSong(){
     playSong();
 };
 
-function updateProgressBar(){
+function updateProgressBar() {
     function readableDuration(seconds) {
-        sec = Math.floor( seconds );    
-        min = Math.floor( sec / 60 );
-        min = min >= 10 ? min : '0' + min;    
-        sec = Math.floor( sec % 60 );
+        sec = Math.floor(seconds);
+        min = Math.floor(sec / 60);
+        min = min >= 10 ? min : '0' + min;
+        sec = Math.floor(sec % 60);
         sec = sec >= 10 ? sec : '0' + sec;
         return `${min}:${sec}`
     }
-    
-    const barWidth = (song.currentTime / song.duration)*100
-    currentProgress.style.setProperty('--progress', `${barWidth}%`) 
-    
+
+    const barWidth = (song.currentTime / song.duration) * 100;
+    currentProgress.style.setProperty('--progress', `${barWidth}%`);
+
     numberProgressStart.innerText = readableDuration(song.currentTime);
-    let numberProgress = song.duration - song.currentTime
+    let numberProgress = song.duration - song.currentTime;
     numberProgressEnd.innerText = `-${readableDuration(numberProgress)}`;
+}
+
+function jumpTo(event) {
+    const width = progressContainer.clientWidth;
+    const clickPosition = event.offsetX;
+    const jumpToTime = (clickPosition / width) * song.duration;
+    song.currentTime = jumpToTime
 }
 
 initializeSong();
@@ -109,4 +116,5 @@ initializeSong();
 play.addEventListener('click', playPauseDecider);
 previous.addEventListener('click', previousSong);
 next.addEventListener('click', nextSong);
-song.addEventListener('timeupdate', updateProgressBar)
+song.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', jumpTo);
