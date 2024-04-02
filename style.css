@@ -76,6 +76,7 @@ button {
 }
 
 .progress-bar {
+    cursor: pointer;
     background-color: rgb(139, 153, 156);
     height: 3px;
     width: 100%;
@@ -98,7 +99,9 @@ button {
 
 
 
-
+.button-active {
+    color: rgb(0, 183, 107);
+}
 
 .button-container {
     display: flex;
