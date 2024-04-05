@@ -65,14 +65,7 @@ button {
 
 
 .progress-container {
-    padding-bottom: 1em;
-}
-
-.number-progress-container {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7em;
-    margin-top: 5px;
+    cursor: pointer;
 }
 
 .progress-bar {
@@ -81,7 +74,6 @@ button {
     height: 3px;
     width: 100%;
     border-radius: 15px;
-    margin-bottom: 1em;
 }
 
 .current-progress {
@@ -92,7 +84,13 @@ button {
     border-radius: inherit;
 }
 
-
+.time-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: smaller;
+    margin-top: 0.5em;
+}
 
 
 
