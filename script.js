@@ -5,6 +5,7 @@ const song = document.getElementById('audio');
 const play = document.getElementById('play');
 const next = document.getElementById('next');
 const previous = document.getElementById('previous');
+const likeButton = document.getElementById('like');
 const currentProgress = document.getElementById('current-progress');
 // const numberProgressStart = document.getElementById('number-progress-start')
 // let numberProgressEnd = document.getElementById('number-progress-end')
@@ -18,22 +19,26 @@ const playList = [{
     songName: 'Smart',
     artist: 'Lee Serafim',
     file: 'LE SSERAFIM Smart',
-    duration: '-02:46'
+    duration: '-02:46',
+    liked: false
 }, {
     songName: 'Maniac',
     artist: 'VIVIZ',
     file: 'VIVIZ MANIAC',
-    duration: '-03:15'
+    duration: '-03:15',
+    liked: false
 }, {
     songName: 'Drama',
     artist: 'Aespa',
     file: 'aespa Drama',
-    duration: '-03:35'
+    duration: '-03:35',
+    liked: false
 }, {
     songName: 'Born to be',
     artist: 'ITZY',
     file: 'ITZY BORN TO BE',
-    duration: '-02:58'
+    duration: '-02:58',
+    liked: false
 }]
 
 let sortedPlaylist = [...playList]
@@ -65,6 +70,18 @@ function playPauseDecider() {
     };
 };
 
+function likeButtonRender() {
+    if (sortedPlaylist[index].liked === true) {
+        likeButton.querySelector('.bi').classList.remove('bi-heart')
+        likeButton.querySelector('.bi').classList.add('bi-heart-fill')
+        likeButton.classList.add('button-active')
+    } else {
+        likeButton.querySelector('.bi').classList.add('bi-heart')
+        likeButton.querySelector('.bi').classList.remove('bi-heart-fill')
+        likeButton.classList.remove('button-active')
+    };
+};
+
 function initializeSong() {
     cover.src = `imagens/${sortedPlaylist[index].file}.webp`
     song.src = `songs/${sortedPlaylist[index].file}.mp3`
@@ -72,7 +89,7 @@ function initializeSong() {
     bandName.innerText = sortedPlaylist[index].artist
     // numberProgressStart.innerText = '00:00'
     // numberProgressEnd.innerText = sortedPlaylist[index].duration
-    toHHMMSS(song.currentTime)
+    likeButtonRender();
 };
 
 function previousSong() {
@@ -176,6 +193,16 @@ function updateTotalTime() {
     totalTime.innerText = toHHMMSS(song.duration);
 };
 
+
+function likeButtonClicked() {
+    if (sortedPlaylist[index].liked === false) {
+        sortedPlaylist[index].liked = true;
+    } else {
+        sortedPlaylist[index].liked = false
+    };
+    likeButtonRender();   
+};
+
 initializeSong();
 
 play.addEventListener('click', playPauseDecider);
@@ -187,3 +214,4 @@ song.addEventListener('loadedmetadata', updateTotalTime);
 progressContainer.addEventListener('click', jumpTo);
 shuffleButton.addEventListener('click', shuffleButtonClicked);
 repeatButton.addEventListener('click', repeatButtonClicked);
+likeButton.addEventListener('click', likeButtonClicked);
