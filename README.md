@@ -17,6 +17,7 @@ Esse projeto está sendo criado através de um mini-curso básico de JavaScript 
 
 Aprendi muita coisa importante, foram elas algumas propriedades do JavaScript, como setProperty, clientWidth, offsetX e todas as outras propriedades que manipulam a tag de audio do html como o som na qual me chamou bastante atenção, a barra de progresso e o temporizador.
 Durante esse desenvolvimento aprendi algumas funções o conversor de segundos para minutos e a função de sortear os elementos de um array.
+Aprendi a utilizar o LocalStorage para armazenar dados de configuração da minha aplicação em meu navegador, simulando um backend.
 
 ## Objetivo
 
@@ -26,8 +27,8 @@ Ao iniciar essas aulas, meu objetivo é aprender mais sobre a tag de áudio, e c
 
 Desafio em andamento. 🥰
 
-<!-- ### Layout Desktop / Mobile
-<img src="" alt="Gif do desafio funcionando em ambas as telas"> -->
+### Layout
+<img src="./imagens/player-do-spotify-layout.gif" alt="Gif do projeto funcionando">
 
 ## Curiosidade
 
