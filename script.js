@@ -7,8 +7,6 @@ const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 const likeButton = document.getElementById('like');
 const currentProgress = document.getElementById('current-progress');
-// const numberProgressStart = document.getElementById('number-progress-start')
-// let numberProgressEnd = document.getElementById('number-progress-end')
 const progressContainer = document.getElementById('progress-container');
 const shuffleButton = document.getElementById('shuffle');
 const repeatButton = document.getElementById('repeat');
@@ -87,8 +85,8 @@ function initializeSong() {
     song.src = `songs/${sortedPlaylist[index].file}.mp3`
     songName.innerText = sortedPlaylist[index].songName
     bandName.innerText = sortedPlaylist[index].artist
-    // numberProgressStart.innerText = '00:00'
-    // numberProgressEnd.innerText = sortedPlaylist[index].duration
+    songTime.innerText = '0:00'
+    totalTime.innerText = sortedPlaylist[index].duration
     likeButtonRender();
 };
 
@@ -116,6 +114,7 @@ function updateProgress() {
     const barWidth = (song.currentTime / song.duration) * 100;
     currentProgress.style.setProperty('--progress', `${barWidth}%`);
     songTime.innerText = toHHMMSS(song.currentTime);
+    totalTime.innerText = `-${toHHMMSS(song.duration - song.currentTime)}`;
 
 
     // function readableDuration(seconds) {
@@ -182,17 +181,11 @@ function nextOrRepeat() {
 };
 
 function toHHMMSS(originalNumber) {
-    let hours = Math.floor(originalNumber / 3600);
-    let min = Math.floor((originalNumber - hours * 3600) / 60)
-    let secs = Math.floor(originalNumber - hours * 3600 - min * 60)
-    return `${hours.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    // let hours = Math.floor(originalNumber / 3600);
+    let min = Math.floor(originalNumber / 60)
+    let secs = Math.floor(originalNumber - min * 60)
+    return `${min}:${secs.toString().padStart(2, '0')}`;
 };
-
-function updateTotalTime() {
-    toHHMMSS(song.duration)
-    totalTime.innerText = toHHMMSS(song.duration);
-};
-
 
 function likeButtonClicked() {
     if (sortedPlaylist[index].liked === false) {
@@ -214,7 +207,6 @@ previous.addEventListener('click', previousSong);
 next.addEventListener('click', nextSong);
 song.addEventListener('timeupdate', updateProgress);
 song.addEventListener('ended', nextOrRepeat);
-song.addEventListener('loadedmetadata', updateTotalTime);
 progressContainer.addEventListener('click', jumpTo);
 shuffleButton.addEventListener('click', shuffleButtonClicked);
 repeatButton.addEventListener('click', repeatButtonClicked);
