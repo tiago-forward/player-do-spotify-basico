@@ -13,9 +13,9 @@
 
 ## Sobre
 
-Esse projeto está sendo criado através do curso básico de JavaScript da Hashtag Programação.
+Esse projeto está sendo criado através de um mini-curso básico de JavaScript da Hashtag Programação.
 
-Aprendi muita coisa importante, foram elas algumas propriedades do JavaScript, como setProperty, clientWidth, offsetX e todas as outras propriedades que manipulam a tag de audio do html como o som, a barra de progresso e o temporizador.
+Aprendi muita coisa importante, foram elas algumas propriedades do JavaScript, como setProperty, clientWidth, offsetX e todas as outras propriedades que manipulam a tag de audio do html como o som na qual me chamou bastante atenção, a barra de progresso e o temporizador.
 Durante esse desenvolvimento aprendi algumas funções o conversor de segundos para minutos e a função de sortear os elementos de um array.
 
 ## Objetivo
@@ -31,7 +31,7 @@ Desafio em andamento. 🥰
 
 ## Curiosidade
 
-Uma das funcionalidades novas que adicionei, na qual ainda não foi apresentada no curso, foi a contagem numérica do tempo da música, era uma funcionalidade na qual estava desejando muito aprender.
+Uma das funcionalidades novas que adicionei, na qual não foi apresentada no curso, foi a contagem numérica do tempo da música se reduzindo. Também não foi apresentado como modificar o volume da música, e isso ficará como um desafio futuro para mim.
 
 ## Tecnologias
 
