@@ -15,7 +15,7 @@ const repeatButton = document.getElementById('repeat');
 const songTime = document.getElementById('song-time');
 const totalTime = document.getElementById('total-time');
 
-const playList = [{
+const playList = JSON.parse(localStorage.getItem('playlist')) ?? [{
     songName: 'Smart',
     artist: 'Lee Serafim',
     file: 'LE SSERAFIM Smart',
@@ -201,6 +201,10 @@ function likeButtonClicked() {
         sortedPlaylist[index].liked = false
     };
     likeButtonRender();   
+    localStorage.setItem(
+        'playlist',
+        JSON.stringify(playList)
+    );
 };
 
 initializeSong();
