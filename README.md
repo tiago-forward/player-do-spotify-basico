@@ -24,7 +24,7 @@ Ao iniciar essas aulas, meu objetivo é aprender mais sobre a tag de áudio, e c
 
 ## Status
 
-Desafio em andamento. 🥰
+Projeto em desenvolvimento. 🥰
 
 ### Layout
 <img src="./imagens/player-do-spotify-layout.gif" alt="Gif do projeto funcionando">
